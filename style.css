@@ -1,0 +1,185 @@
+/* الألوان الأساسية - براند البوب */
+:root {
+    --pop-blue: #1a365d;
+    --pop-cream: #fdfaf5;
+    --pop-gold: #c5a059;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --gray-light: #f1f5f9;
+}
+
+/* التنسيق العام */
+body { 
+    background-color: var(--pop-cream); 
+    color: var(--pop-blue); 
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+    direction: rtl; 
+    padding: 20px; 
+    margin: 0;
+}
+
+.main-container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.main-title { 
+    text-align: center; 
+    border-bottom: 3px solid var(--pop-gold); 
+    display: table; 
+    margin: 0 auto 30px; 
+    padding-bottom: 10px;
+    font-size: 2rem;
+}
+
+/* الكروت */
+.dashboard-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    margin-bottom: 25px; 
+}
+
+.card { 
+    flex: 1; 
+    min-width: 300px; 
+    background: white; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    border-top: 5px solid var(--pop-gold);
+}
+
+/* المدخلات */
+input, select { 
+    width: calc(100% - 24px); 
+    padding: 10px; 
+    margin-bottom: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background: var(--gray-light);
+}
+
+/* الأزرار */
+button { 
+    width: 100%; 
+    padding: 12px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s;
+}
+
+button:hover { opacity: 0.85; transform: scale(0.99); }
+
+.btn-primary { background: var(--pop-blue); color: white; }
+.btn-inventory { background: var(--pop-gold); color: white; }
+.btn-archive { background: #9b59b6; color: white; }
+.btn-new-week { background: #3498db; color: white; }
+
+/* شريط الملخص */
+.summary-bar { 
+    display: flex; 
+    justify-content: space-around; 
+    background: var(--pop-blue); 
+    color: white; 
+    padding: 20px; 
+    border-radius: 12px; 
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.profit-highlight { color: var(--success); font-weight: bold; }
+
+/* الجداول */
+.week-section { 
+    background: white; 
+    margin-top: 20px; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+}
+
+.week-title { 
+    background: var(--pop-blue); 
+    color: white; 
+    padding: 12px; 
+    text-align: center; 
+    font-weight: bold;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #eee; padding: 12px; text-align: center; }
+th { background: #f8fafc; font-size: 14px; }
+
+/* سجل الأيام والعمليات */
+.day-block {
+    background: #fff;
+    border-bottom: 2px solid var(--pop-gold);
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* تنسيق المرتجع والحذف */
+.return-btn {
+    background: var(--danger);
+    color: white;
+    font-size: 11px;
+    padding: 4px 8px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.del-link {
+    color: var(--danger);
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+/* قسم الأرشيف المطور */
+.archive-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.archive-details {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* الأكشن (الأزرار العلوية) */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.actions button { flex: 1; min-width: 150px; }
+
+/* أنيميشن بسيط */
+.fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* للموبايل */
+@media (max-width: 600px) {
+    .dashboard-grid { flex-direction: column; }
+    .summary-bar { flex-direction: column; text-align: center; gap: 10px; }
+}

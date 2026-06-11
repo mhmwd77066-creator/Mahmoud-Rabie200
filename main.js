@@ -27,6 +27,22 @@ function editSale(id, field, newValue) {
         localStorage.setItem('popSales', JSON.stringify(sales));
         refreshUI();
     }
+    function sendWhatsAppMessage(phone) {
+    // النص الذي اخترناه
+    const message = "أهلاً بك يا بطل! نورت Outfit. 👕✨ شكراً لاختيارك لنا، يسعدنا جداً انضمامك لعائلة عملائنا المميزين. نتمنى أن تكون القطع التي اخترتها قد نالت إعجابك، وفي انتظارك دائماً لتشوف كل جديد عندنا. لو احتجت أي استفسار أو حبيت تطلب Outfit جديد، إحنا موجودين دايماً لخدمتك! ⚡️";
+    
+    // التأكد من أن الرقم يبدأ بـ 20 (كود مصر)
+    let formattedPhone = phone.startsWith('0') ? '2' + phone.substring(1) : phone;
+    
+    const url = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+
+// داخل دالة إتمام البيع، بعد التأكد من تسجيل البيانات:
+let phone = document.getElementById('clientPhone').value;
+if (phone.length >= 10) {
+    sendWhatsAppMessage(phone);
+}
 }
 
 // 3. التحكم في الأسبوع واليوم

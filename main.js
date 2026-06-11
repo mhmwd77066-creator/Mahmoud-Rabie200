@@ -253,4 +253,11 @@ function exportToExcel() {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Sales");
     XLSX.writeFile(wb, "ELPOP_Report.xlsx");
+    // دالة إرسال الواتساب
+function sendWhatsApp(phone) {
+    const message = "أهلاً بك يا بطل! نورت Outfit. 👕✨ شكراً لاختيارك لنا، يسعدنا جداً انضمامك لعائلة عملائنا المميزين. نتمنى أن تكون القطع التي اخترتها قد نالت إعجابك، وفي انتظارك دائماً لتشوف كل جديد عندنا. لو احتجت أي استفسار أو حبيت تطلب Outfit جديد، إحنا موجودين دايماً لخدمتك! ⚡️";
+    let formattedPhone = phone.startsWith('0') ? '2' + phone.substring(1) : phone;
+    const url = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
 }
